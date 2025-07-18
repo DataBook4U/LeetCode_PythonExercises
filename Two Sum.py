@@ -32,11 +32,32 @@ class solution():
         self.resultList = []
         while iter2 < stop:
             r = self.nums[iter1] + self.nums[iter2]
-            self.resultList.append(r)
+            if r == self.target:
+                self.resultList.append(iter1)
+                self.resultList.append(iter2)
             iter1 += 1
             iter2 += 1
-        print(self.resultList)
+        return self.resultList
 
 
-run1 = solution([2,7,11,15], 9)
+run1 = solution(nums = [3,3], target = 6)
 run1.result()
+
+#Accepted LeetCode Version:
+
+"""
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        iter1 = 0
+        iter2 = 1
+        stop = len(nums)
+        resultList = []
+        while iter2 < stop:
+            r = nums[iter1] + nums[iter2]
+            if r == target:
+                resultList.append(iter1)
+                resultList.append(iter2)
+            iter1 += 1
+            iter2 += 1
+        return resultList
+"""
