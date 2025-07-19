@@ -30,9 +30,16 @@ class solution:
 
     def result(self):
         n1 = int(''.join(map(str, self.l1)))        #'map' turns l1 in a list of strings, 'join' joins them and 'int' does the rest
-        n1 = int(str(n1)[::-1])
-        n2 = int(''.join(map(str, self.l2)))
+        n1 = int(str(n1)[::-1])                     #Reversing number
 
-        print(n1)
+        n2 = int(''.join(map(str, self.l2)))
+        n2 = int(str(n2)[::-1])
+
+        r1 = n1 + n2                                #First result (sum of n1 and n2)
+        r1 = int(str(r1)[::-1])                     #Reversing number
+
+        r2 = [int(digit) for digit in str(r1)]      #Second result (r1 reversed changed into digits in a list
+        return r2
+
 
 solution(l1, l2).result()
