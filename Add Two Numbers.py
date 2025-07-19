@@ -19,8 +19,9 @@ Output: [0,1]
 
 """
 
-l1 = [2, 4, 3]
-l2 = [5, 6, 4]
+#My Solution:
+l1 = [9, 9, 9, 9, 9, 9, 9]
+l2 = [9, 9, 9, 9]
 
 class solution:
 
@@ -42,4 +43,7 @@ class solution:
         return r2
 
 
-solution(l1, l2).result()
+print(solution(l1, l2).result())
+
+#Solution requested by LeetCode to pass the test:
+
