@@ -45,5 +45,29 @@ class solution:
 
 print(solution(l1, l2).result())
 
-#Solution requested by LeetCode to pass the test:
+#My Solution did not work on LeetCode because the platform passes linked lists (which I didn't even know),
+#not arrays (Python List).
 
+#A solution that meets the requirements by LeetCode to pass the test:
+class Solution:
+
+    def addTwoNumbers(self, l1, l2):
+        def extract_number(node):
+            num = ''
+            while node:
+                num += str(node.val)
+                node = node.next
+            return int(num[::-1])  # reverse the string and convert to int
+
+        n1 = extract_number(l1)
+        n2 = extract_number(l2)
+        total = n1 + n2
+        reversed_digits = str(total)[::-1]
+
+        dummy = ListNode(0)
+        current = dummy
+        for digit in reversed_digits:
+            current.next = ListNode(int(digit))
+            current = current.next
+
+        return dummy.next
