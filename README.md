@@ -1,0 +1,1 @@
+I am using PyCharm to build solutions for LeetCode. Afterwards I test the solutions inside of LeetCode to verfiy my built solutions. The PyCharm work gets stored inside this repository so I can try out different solutions in the future or add some notes to different problems.
