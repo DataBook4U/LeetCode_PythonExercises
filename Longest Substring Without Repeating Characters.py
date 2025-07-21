@@ -24,5 +24,18 @@ class solution:
     def __init__(self, input):
         self.input = input
 
+    #I think of iterating through the string and adding substrings to a list. Then the substring in the list with the highest len() value gets returned
+    #Update: it might be better using a set instead of a list
     def lengthOfLongestSubstring(self):
-        pass
+        substrings = set()
+        start = 0
+        max_l = len(self.input)
+
+        for letter in self.input:
+            print(letter)
+
+
+
+s = "abcabcbb"
+trial1 = solution(s)
+print(trial1.lengthOfLongestSubstring())
