@@ -28,7 +28,6 @@ class solution:
     #Update: it might be better using a set instead of a list
     def lengthOfLongestSubstring(self):
         substrings = []
-        sequences = []
         i1 = 0
         j = 1
         length = len(self.input)
@@ -38,6 +37,26 @@ class solution:
             substrings.append(self.input[i1])
             i1 += 1
 
+        s = substrings
+        sequences = []
+        current = ""
+        i = 0
+
+        while i < len(s):
+            if s[i] in current:
+                sequences.append(current)
+                current = ""
+            else:
+                current += s[i]
+                i += 1
+
+        if current:
+            sequences.append(current)
+
+        return sequences
+
+
+        """
         for i in range (0, length):
             start = substrings[0]
             if substrings[i] == start and substrings[i] in sequences:
@@ -46,7 +65,7 @@ class solution:
                 sequences.append(substrings[i])
             elif substrings[i] != start and substrings[i] not in sequences:
                 sequences.append(substrings[i])
-        """
+        
         #Determine sequences in array
         for i in range(0, length):
             sequence = "".join(substrings)
