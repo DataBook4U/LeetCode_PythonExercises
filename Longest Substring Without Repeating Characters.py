@@ -27,31 +27,26 @@ class solution:
     #I think of iterating through the string and adding substrings to a list. Then the substring in the list with the highest len() value gets returned
     #Update: it might be better using a set instead of a list
     def lengthOfLongestSubstring(self):
-        substrings = []
-        solution = 0
-        current = ""
-        seen = set()
+        seen = set()    #Here the chars are being stored of the string that is being looked at
+        left = 0        #Left side of the string
+        max_len = 0     #Saves max length of the valid substrings (duplicate free, thanks to the set)
 
-        for char in self.input:
-            if char in seen:
-                substrings.append(current)
-                current = char
-                seen = {char}
-            else:
-                current += char
-                seen.add(char)
+        #Moving with a right pointer through the string:
+        for right in range(len(self.input)):
+            while self.input[right] in seen:                #If current char already in set, move left pointer right and dump char until duplicates are out
+                seen.remove(self.input[left])
+                left +=1
 
-        if current:
-            substrings.append(current)
+            #self.input[right] not in Set -> add to set
+            seen.add(self.input[right])
 
-        for i in substrings:
-            if len(i) > solution:
-                solution = len(i)
-            else:
-                solution = solution
+            #update max_len if substring is longer
+            max_len = max(max_len, right - left + 1)
 
-        return solution
+        #give back max_len of the found substrings:
+        return max_len
 
-s = "abcabcbb"
+
+s = "dvdf"
 trial1 = solution(s)
 print(trial1.lengthOfLongestSubstring())
